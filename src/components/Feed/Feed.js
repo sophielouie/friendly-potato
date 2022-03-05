@@ -33,3 +33,5 @@ class Feed extends Component {
         return (text);
       }
   }
+
+  export default Feed

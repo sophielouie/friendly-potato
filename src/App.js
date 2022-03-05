@@ -1,12 +1,14 @@
-import React from "react";
-import reactDOM from "react-dom";
-import "App.css";
+import React from 'react';
+import './App.css';
+import Post from './components/Post/Post';
 
-const App = () => (
-    //Return is implicit here
-    <div>
-        <hl className='wow'>Hello React!!</hl>
+const App = () => {
+  return (
+    <div className="App">
+      <Post />
+      
     </div>
-);
+  );
+}
 
 export default App;

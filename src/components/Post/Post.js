@@ -1,18 +1,17 @@
 import React, { Component } from "react";
-import reactDOM from "react-dom";
+import parser from "html-react-parser";
 // import "Feed.js"
 
-var globalPostId = 0;
-
 class Post extends Component {
-    constructor (song) {
-        this.postId = globalPostId;
-        this.song = song;
+    constructor (props) {
+        super(props)
+        this.postId = 0;
+        this.song = "Lazy Song";
         this.likes = [];
-        this.comments = [];
+        this.comments = ["1", "2", "3"];
 
         this.updateGlobalPostId = function () {
-            globalPostId = globalPostId + 1;
+            this.postId = this.postId + 1;
           }
         
 
@@ -30,17 +29,29 @@ class Post extends Component {
         return 'song: ' + this.song + "\nnumber of likes: " + this.likes.length + "\ncomments: " + this.comments;  
     }
 
-    render() {
-        for (let i = 0; i < this.comments.length, text = "<UL>"; i++) {
-            text += "<LI>" + this.comments[i]
+    displayComments() {
+        let text = "<ul>"
+        for (let i = 0; i < this.comments.length; i++) {
+            text += "<li>" + this.comments[i] + "</li>";
         }
-        text += "</UL>"
+        text += "</ul>";
+        return text;
+    }
+
+    render() {
+        
         return (
             <div>
                 <h1 className = "header"> Song of post: {this.song} </h1>
-                <p> Likes of post: {this.likes.length} </p>
-                <p> Comments of post: {text}</p>
-            </div>
+                <div>
+                    
+                    <p> Likes of post: {this.likes.length} </p>
+                    <p> Comments of post: {parser(this.displayComments())} </p>
+                    <button id="likeButton" onclick={() => this.likes.append(1)}>like</button>
+                </div>
+                </div>
         );
       }
   }
+
+  export default Post;
