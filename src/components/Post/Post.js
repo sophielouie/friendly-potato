@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import reactDOM from "react-dom";
+// import "Feed.js"
 
 var globalPostId = 0;
 
@@ -13,6 +14,7 @@ class Post extends Component {
         this.updateGlobalPostId = function () {
             globalPostId = globalPostId + 1;
           }
+        
 
     }
 
@@ -29,12 +31,15 @@ class Post extends Component {
     }
 
     render() {
+        for (let i = 0; i < this.comments.length, text = "<UL>"; i++) {
+            text += "<LI>" + this.comments[i]
+        }
+        text += "</UL>"
         return (
             <div>
-                <h1 className = "header"> Post Id: {this.postId} </h1>
-                <p> Song of post: {this.song} </p>
+                <h1 className = "header"> Song of post: {this.song} </h1>
                 <p> Likes of post: {this.likes.length} </p>
-                <p> Comments of post: {this.comments} </p>
+                <p> Comments of post: {text}</p>
             </div>
         );
       }
