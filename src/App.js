@@ -6,6 +6,6 @@ const App = () => (
     <div>
         <hl>Hello React</hl>
     </div>
-)
+);
 
 export default App;
