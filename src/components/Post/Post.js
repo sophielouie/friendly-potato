@@ -25,8 +25,12 @@ class Post extends Component {
 
     comment() {
         var comment = document.getElementById("cmt").value;
+<<<<<<< HEAD
         document.getElementById("cmtList").innerHTML = this.displayComments();
+=======
+>>>>>>> f40b650d573993ad7e7216a42820a13f2cc8b066
         this.comments = this.comments.concat(comment);
+        document.getElementById("cmtList").innerHTML = this.displayComments();
     }
 
     toString() {
