@@ -6,6 +6,13 @@ const App = () => {
   return (
     <div className="App">
       <Post />
+        <Post />
+      {/* <App>
+        //Prompt
+          <Post />
+
+      </App> */}
+      
       
     </div>
   );
