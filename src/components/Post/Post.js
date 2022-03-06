@@ -18,11 +18,15 @@ class Post extends Component {
     }
 
     like() {
-        this.likes.append(1);
+        console.log(this.likes);
+        this.likes = this.likes.concat(1);
+        document.getElementById("likes").innerHTML = this.likes.length;
     }
 
-    comment(comment) {
-        this.comments.append(comment);
+    comment() {
+        var comment = document.getElementById("cmt").value;
+        document.getElementById("cmtList").innerHTML = this.displayComments;
+        this.comments = this.comments.concat(comment);
     }
 
     toString() {
@@ -30,11 +34,10 @@ class Post extends Component {
     }
 
     displayComments() {
-        let text = "<ul>"
+        let text = ""
         for (let i = 0; i < this.comments.length; i++) {
             text += "<li>" + this.comments[i] + "</li>";
         }
-        text += "</ul>";
         return text;
     }
 
@@ -44,10 +47,15 @@ class Post extends Component {
             <div>
                 <h1 className = "header"> Song of post: {this.song} </h1>
                 <div>
+                    <button id="likeButton" onClick={() => this.like()}>like</button>
+                    <p> Likes of post:</p> <p id="likes"> {this.likes.length} </p>
+                    <input type="text" id="cmt" name="comment"/>
+                    <button id="cmtB" onClick={() => this.comment()}>Comment</button>
+                    <p> Comments of post: </p>
+                    <ul id="cmtList">{parser(this.displayComments())} </ul>
                     
-                    <p> Likes of post: {this.likes.length} </p>
-                    <p> Comments of post: {parser(this.displayComments())} </p>
-                    <button id="likeButton" onclick={() => this.likes.append(1)}>like</button>
+                    
+                    
                 </div>
                 </div>
         );

@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactDOM } from "react";
 import "Post.js";
+import parser from "html-react-parser";
 
 
 
@@ -8,7 +9,10 @@ import "Post.js";
 //Feed class contains a collection of posts
 class Feed extends Component {
     constructor (posts) {
-        this.posts = posts;
+        // const Post = ({"The Lazy Song"}) => {
+
+        // }
+        this.posts = [Post];
     }
 
     //compares posts by how many likes they have
@@ -30,7 +34,7 @@ class Feed extends Component {
         for (let i = 0; i < this.posts.length, text = ""; i++) {
             text += this.posts[i].render() + "<br>";
         }
-        return (text);
+        return parse(text);
       }
   }
 
