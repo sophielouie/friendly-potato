@@ -6,7 +6,7 @@ class Post extends Component {
     constructor (props) {
         super(props)
         this.postId = 0;
-        this.song = "Lazy Song";
+        this.song =  this.props;
         this.likes = [];
         this.comments = ["1", "2", "3"];
 
@@ -25,7 +25,7 @@ class Post extends Component {
 
     comment() {
         var comment = document.getElementById("cmt").value;
-        document.getElementById("cmtList").innerHTML = this.displayComments;
+        document.getElementById("cmtList").innerHTML = this.displayComments();
         this.comments = this.comments.concat(comment);
     }
 
